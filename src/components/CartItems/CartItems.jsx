@@ -3,12 +3,11 @@ import { CartContext } from "@/context/CartProvider";
 import React, { use } from "react";
 
 const CartItems = () => {
-      const { cart, removeFromCart } = use(CartContext);
-    console.log(cart);   
-    const handleRemoveCart = (item) => {        
-        removeFromCart(item.id);
-        
-}
+  const { cart, removeFromCart } = use(CartContext);
+  // console.log(cart);
+  const handleRemoveCart = (item) => {
+    removeFromCart(item.id);
+  };
 
   return (
     <div className="p-4">

@@ -17,14 +17,15 @@ export default function FoodCard({ food }) {
           <span className="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded-full">
             {food.category}
           </span>
-          <span className="text-lg font-bold text-gray-800">${food.price}</span>
+          <span className="text-lg font-bold text-gray-800">৳
+            {food.price}</span>
         </div>
 
-        <h2 className="text-xl font-bold text-gray-900 mb-4">{food.title}</h2>
+        <h2 title={food.title} className="text-xl font-bold text-gray-900 mb-4 truncate  ">{food.title}</h2>
 
         <div className="flex gap-3">
           {/* Button 1: See Details (The Teleportation Door) */}
-         <AddToCart></AddToCart>
+         <AddToCart item={food}></AddToCart>
 
           {/* Button 2: Add to Cart */}
          <SeeDetailsButton id={food.id} key={food.id}></SeeDetailsButton>

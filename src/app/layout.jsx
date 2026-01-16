@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import NavLink from "@/components/NavLink";
+import CartProvider from "@/context/CartProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,13 +32,13 @@ export default function RootLayout({ children }) {
               <nav className="flex justify-center items-center gap-4 flex-wrap">
                 <NavLink href="/">Home</NavLink>
                 <NavLink href="/foods">Foods</NavLink>
-                <NavLink href="/reviews">Reviews</NavLink> 
+                <NavLink href="/reviews">Reviews</NavLink>
                 <NavLink href="/about">About</NavLink>
                 <NavLink href="/contact">Contact</NavLink>
               </nav>
             </div>
           </header>
-          {children}
+          <CartProvider>{children}</CartProvider>
         </main>
       </body>
     </html>

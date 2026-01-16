@@ -1,5 +1,6 @@
 import React from "react";
 import { Star, ThumbsUp } from "lucide-react";
+import Image from "next/image";
 
 const ReviewCard = ({ reviewDetails }) => {
   const { user, photo, rating, review, likes, date } = reviewDetails;
@@ -12,13 +13,20 @@ const ReviewCard = ({ reviewDetails }) => {
   });
 
   return (
-    <div className="max-w-md bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+    <div   className="max-w-md bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
       <div className="flex items-center gap-4 mb-4">
         {/* ইউজার ইমেজ */}
-        <img
+        {/* <img
           src={photo}
           alt={user}
           className="w-12 h-12 rounded-full object-cover border-2 border-orange-100"
+        /> */}
+        <Image
+          src={photo}
+          alt={user}
+          className="w-12 h-12 rounded-full object-cover border-2 border-orange-100"
+          width={48}
+          height={48}
         />
         <div>
           <h4 className="font-bold text-gray-800 text-lg">{user}</h4>
@@ -52,7 +60,6 @@ const ReviewCard = ({ reviewDetails }) => {
         </div>
       </div>
     </div>
-   
   );
 };
 

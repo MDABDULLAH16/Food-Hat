@@ -3,6 +3,8 @@ import "./globals.css";
 import Link from "next/link";
 import NavLink from "@/components/NavLink";
 import CartProvider from "@/context/CartProvider";
+import Image from "next/image";
+// import logo from '/logo.png'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,7 +32,8 @@ export default function RootLayout({ children }) {
       >
         <main className="  mx-auto p-4">
           <header className="flex justify-between items-center">
-            <h1 className="font-bold text-3xl">Food Hat</h1>
+            {/* <h1 className="font-bold text-3xl">Food Hat</h1> */}
+            <Image src='/logo.png' width={150} height={30} alt="YunTun Khaijan" />
             <div>
               <nav className="flex justify-center items-center gap-4 flex-wrap">
                 <NavLink href="/">Home</NavLink>

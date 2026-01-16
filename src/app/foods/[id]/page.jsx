@@ -2,6 +2,21 @@ import React from "react";
 import Link from "next/link";
 import AddToCart from "@/components/Buttons/AddToCart";
 
+export function generateStaticParams() {
+  return [{ id: "53032" }, { id: "52859" }, { id: "52870" }];
+}
+
+export async function generateMetadata({params}) {
+  const { id } = await params;
+  // Fetching the data
+  const res = await fetch(
+    `https://taxi-kitchen-api.vercel.app/api/v1/foods/${id}`
+  );
+  const {details} = await res.json();
+  return {
+    title:details.title
+  }
+}
 const FoodDetailsPage = async ({ params }) => {
   const { id } = await params;
 

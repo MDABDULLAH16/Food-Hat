@@ -5,12 +5,18 @@ import React from "react";
 
 const getFoods = async (search) => {
   const result = await fetch(
-    `https://taxi-kitchen-api.vercel.app/api/v1/foods/random?search=${search}`
+    `https://taxi-kitchen-api.vercel.app/api/v1/foods/random?search=${search}`,
+    {next:{revalidate:10}}
   );
   const res = await result.json();
   const foods = res.foods || [];
   // console.log(foods);
   return foods;
+};
+
+export const metadata = {
+  title: 'All Foods',
+  description: "Best Fast Food in NoaKhali",
 };
 
 const Foods = async ({ searchParams }) => {
